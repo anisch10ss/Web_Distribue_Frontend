@@ -1,0 +1,31 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "enterprise_name": "Enterprise A",
+        "matricule_fiscale": "XYZ123",
+        "contact": "example@example.com",
+        "typeOfService": "IT",
+        "logo": "assets/img/logo/BIZZMATCH.png"
+      },
+      {
+        "id": 2,
+        "enterprise_name": "Enterprise B",
+        "matricule_fiscale": "ABC456",
+        "contact": "contact@example.com",
+        "typeOfService": "Entertainment",
+        "logo": "assets/img/logo/BIZZMATCH.png"
+      },
+      {
+        "id": 3,
+        "enterprise_name": "Enterprise C",
+        "matricule_fiscale": "DEF789",
+        "contact": "contact@enterpriseC.com",
+        "typeOfService": "Hospitality",
+        "logo": "assets/img/logo/BIZZMATCH.png"
+      }
+      
+    ],
+    "totalData": 3
+  }
+  

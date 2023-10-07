@@ -1,0 +1,48 @@
+<div class="add-matching-container">
+  <h2 class="page-title">Add entreprise matching information</h2>
+
+  <form (submit)="submitForm()" class="modern-form">
+    <div class="form-group">
+      <label for="entrepriseName">Nom D'entreprise:</label>
+      <input type="text" id="entrepriseName" name="entrepriseName" [value]="formData.entrepriseName" (input)="formData.entrepriseName = $event.target.value" required>
+    </div>
+    <div class="form-group">
+      <label for="entrepriseDescription">Description de l'entreprise:</label>
+      <textarea id="entrepriseDescription" name="entrepriseDescription" (input)="formData.entrepriseDescription = $event.target.value" required>{{ formData.entrepriseDescription }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="matriculeFiscale">Matricule fiscale:</label>
+      <input type="text" id="matriculeFiscale" name="matriculeFiscale" [value]="formData.matriculeFiscale" (input)="formData.matriculeFiscale = $event.target.value" required>
+    </div>
+    <div class="form-group">
+      <label for="productName">Nom du produit:</label>
+      <input type="text" id="productName" name="productName" [value]="formData.productName" (input)="formData.productName = $event.target.value" required>
+    </div>
+    <div class="form-group">
+      <label for="productType">Type du produit:</label>
+      <select id="productType" name="productType" [value]="formData.productType" (change)="formData.productType = $event.target.value" required>
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="c">c</option>
+        <option value="d">d</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="productLogo">Logo du produit:</label>
+      <input type="file" id="productLogo" name="productLogo" (change)="onLogoChange($event)">
+    </div>
+    <div class="form-group">
+      <label for="productPrice">Prix:</label>
+      <input type="number" id="productPrice" name="productPrice" [value]="formData.productPrice" (input)="formData.productPrice = $event.target.value" required>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact de l'entreprise:</label>
+      <input type="text" id="contact" name="contact" [value]="formData.contact" (input)="formData.contact = $event.target.value" required>
+    </div>
+    <div class="form-group">
+      <label for="onMarket">Produit est sur le marché:</label>
+      <input type="checkbox" id="onMarket" name="onMarket" [checked]="formData.onMarket" (change)="formData.onMarket = $event.target.checked">
+    </div>
+    <button type="submit" class="modern-button">Soumettre</button>
+  </form>
+</div>
