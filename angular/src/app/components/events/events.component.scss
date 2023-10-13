@@ -1,0 +1,47 @@
+.events-page {
+    padding: 20px;
+    margin: 200px;
+    margin-left: 300px;
+    margin-right: 300px;
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .calendar {
+      /* Add styles for the calendar container */
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    
+    /* Define styles for calendar header */
+    .calendar .fc-header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+    }
+    
+    /* Define styles for calendar events */
+    .calendar .fc-event {
+      background-color: #28a745;
+      color: #fff;
+      border: 1px solid #218838;
+      padding: 5px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    
+    /* Define styles for calendar event title */
+    .calendar .fc-event-title {
+      font-weight: bold;
+    }
+    
+    /* Define styles for calendar event time */
+    .calendar .fc-event-time {
+      font-style: italic;
+    }
+  }
+  

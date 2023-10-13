@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Service 1",
+      "enterprise": "Enterprise A"
+    },
+    {
+      "id": 2,
+      "name": "Service 2",
+      "enterprise": "Enterprise B"
+    },
+    {
+      "id": 3,
+      "name": "Service 3",
+      "enterprise": "Enterprise C"
+    },
+    {
+      "id": 4,
+      "name": "Service 4",
+      "enterprise": "Enterprise A"
+    },
+    {
+      "id": 5,
+      "name": "Service 5",
+      "enterprise": "Enterprise B"
+    }
+  ],
+  "totalData": 5
+}
