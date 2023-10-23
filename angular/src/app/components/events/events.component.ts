@@ -1,55 +1,104 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as FullCalendar from 'fullcalendar';
+import { ApiService } from 'src/app/shared/service/api/api.service';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.scss']
+  styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements AfterViewInit {
+  showAddForm: boolean = false;
+  addFormStartDate: Date = new Date();
+  addFormEndDate: Date = new Date();
+  addFormLieu: string = '';
+  addFormHost: string = '';
+  calendar: any;
+
+  constructor(private api: ApiService) {}
+
   ngAfterViewInit() {
     // Initialize FullCalendar
     const calendarEl: HTMLElement | null = document.getElementById('calendar');
-  
+
+    this.api.getEvents().subscribe((res: any) => {
+      console.log(res);
+      res.forEach((event: any) => {
+        this.calendar.addEvent({
+          title: event.host,
+          start: new Date(event.dateevent),
+          end: new Date(
+            new Date(event.dateevent).getTime() + (event.durée - 1) * 24 * 60 * 60 * 1000
+          ),
+        });
+      });
+    });
+
     if (calendarEl) {
-      const calendar = new FullCalendar.Calendar(calendarEl, {
+      this.calendar = new FullCalendar.Calendar(calendarEl, {
         // Configuration options for FullCalendar go here
         // For example, you can set event sources, initial view, etc.
-        events: [
-          {
-            title: 'Meeting',       // Event title
-            start: '2023-10-10T10:00:00', // Event start time (in ISO format)
-            end: '2023-10-10T12:00:00'   // Event end time (in ISO format)
-          },
-          {
-            title: 'Conference',
-            start: '2023-10-08T14:00:00',
-            end: '2023-10-11T16:00:00'
-          },
-          {
-            title: 'Event 3',
-            start: '2023-10-12T09:30:00',
-            end: '2023-10-12T11:00:00'
-          },
-          {
-            title: 'Event 4',
-            start: '2023-10-13T16:00:00',
-            end: '2023-10-13T17:30:00'
-          },
-          {
-            title: 'Event 5',
-            start: '2023-10-14T13:00:00',
-            end: '2023-10-14T14:30:00'
-          },
-          // Add more static events as needed
-        ],
+        selectable: true,
+        events: [],
+        select: (info) => {
+          console.log(info);
+          this.addFormStartDate = info.start;
+          this.addFormEndDate = info.end;
+          this.showAddForm = true;
+        },
       });
-  
+
       // Render the calendar
-      calendar.render();
+      this.calendar.render();
     } else {
-      console.error("Calendar element not found");
+      console.error('Calendar element not found');
     }
   }
-  
+
+  calculateDiff(datestart: Date, dateend: Date) {
+    return Math.floor(
+      (Date.UTC(
+        datestart.getFullYear(),
+        datestart.getMonth(),
+        datestart.getDate()
+      ) -
+        Date.UTC(
+          dateend.getFullYear(),
+          dateend.getMonth(),
+          dateend.getDate()
+        )) /
+        (1000 * 60 * 60 * 24)
+    );
+  }
+
+  onClick(event: any) {
+    // console.log(this.addFormStartDate, this.addFormEndDate, this.addFormTitle);
+    this.showAddForm = false;
+    // this.calendar.addEvent({
+    //   title: this.addFormTitle,
+    //   start: this.addFormStartDate,
+    //   end: this.addFormEndDate
+    // });
+    let new_event = {
+      dateevent: this.addFormStartDate,
+      lieu: this.addFormLieu,
+      durée: this.calculateDiff(this.addFormEndDate, this.addFormStartDate),
+      host: this.addFormHost,
+    };
+    this.api.postEvent(new_event).subscribe((res: any) => {
+      console.log(res);
+      this.calendar.addEvent({
+        title: new_event.host,
+        start: new_event.dateevent,
+        end: new Date(
+          new_event.dateevent.getTime() + new_event.durée * 24 * 60 * 60 * 1000
+        ),
+      });
+    });
+  }
+
+  cancelAdd() {
+    this.showAddForm = false;
+    console.log(this.calculateDiff(this.addFormEndDate, this.addFormStartDate),);
+  }
 }

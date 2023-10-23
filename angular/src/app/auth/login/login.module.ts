@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
@@ -16,8 +15,7 @@ import { FeatherIconModule } from 'src/app/shared/module/feather.module';
     CommonModule,
     LoginRoutingModule,
     CarouselModule,
-    FeatherIconModule,
-    FormsModule
+    FeatherIconModule
   ],
 
 })

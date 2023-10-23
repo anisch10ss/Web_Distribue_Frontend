@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './shared/service/common/auth.guard';
-import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
@@ -23,11 +21,6 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'error/404',
-  },
-  {
-    path: 'protected-route',
-    component: AuthComponent,
-    canActivate: [AuthGuard],
   },
 ];
 

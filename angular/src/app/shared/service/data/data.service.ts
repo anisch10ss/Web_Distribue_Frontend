@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, Observable,BehaviorSubject,map } from "rxjs";
+import { Subject, Observable, BehaviorSubject, map } from 'rxjs';
 import { routes } from '../routes/routes';
 
 @Injectable({
@@ -23,79 +23,79 @@ export class DataService {
   }
   messages: any = '';
   message: BehaviorSubject<String>;
-  constructor(private http :HttpClient) {
+  constructor(private http: HttpClient) {
     this.message = new BehaviorSubject(this.messages);
-   }
-   nextmessage(data: any) {
+  }
+  nextmessage(data: any) {
     this.message.next(data);
   }
   public instructorCourseList(): Observable<any> {
     return this.http.get('assets/JSON/instructorCourseList.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public allCourseList(): Observable<any> {
     return this.http.get('assets/JSON/courseList.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public gridCourseList(): Observable<any> {
     return this.http.get('assets/JSON/courseGrid.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public allInstructorList(): Observable<any> {
     return this.http.get('assets/JSON/allInstructorList.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public allInstructorGrid(): Observable<any> {
     return this.http.get('assets/JSON/allInstructorGrid.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public instructorTicket1(): Observable<any> {
     return this.http.get('assets/JSON/instructorTicket1.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public instructorTicket4(): Observable<any> {
     return this.http.get('assets/JSON/instructorTicket4.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public instructorTicket2(): Observable<any> {
     return this.http.get('assets/JSON/instructorTicket2.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public instructorTicket3(): Observable<any> {
     return this.http.get('assets/JSON/instructorTicket3.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
   public latestTransactionsList(): Observable<any> {
     return this.http.get('assets/JSON/latestTransaction.json').pipe(
       map((res: any) => {
-      return res;
+        return res;
       })
     );
   }
@@ -993,18 +993,18 @@ export class DataService {
     {
       img: 'assets/img/icon/icon-25.svg',
       heading: '32',
-      paragraph: 'Courses'
+      paragraph: 'Courses',
     },
     {
       img: 'assets/img/icon/icon-26.svg',
       heading: '11,604',
-      paragraph: 'Total Students'
+      paragraph: 'Total Students',
     },
     {
       img: 'assets/img/icon/icon-27.svg',
       heading: '12,230',
-      paragraph: 'Reviews'
-    }
+      paragraph: 'Reviews',
+    },
   ];
   public depositHistory = [
     {
@@ -1033,18 +1033,18 @@ export class DataService {
     {
       img: 'assets/img/icon/icon-25.svg',
       heading: '32',
-      paragraph: 'Courses'
+      paragraph: 'Courses',
     },
     {
       img: 'assets/img/icon/icon-26.svg',
       heading: '11,604',
-      paragraph: 'Total Students'
+      paragraph: 'Total Students',
     },
     {
       img: 'assets/img/icon/icon-27.svg',
       heading: '12,230',
-      paragraph: 'Reviews'
-    }
+      paragraph: 'Reviews',
+    },
   ];
   public profileDetails = [
     {
@@ -1224,11 +1224,11 @@ export class DataService {
   ];
   public instructorEdit = [
     {
-    heading:'Profile Overview',
-    rating1:'4.0',
-    rating2:'(15)'
-  }
-];
+      heading: 'Profile Overview',
+      rating1: '4.0',
+      rating2: '(15)',
+    },
+  ];
   public instructorEditEducation = [
     {
       heading: 'BCA - Bachelor of Computer Applications',
@@ -1605,11 +1605,11 @@ export class DataService {
   ];
   public instructorProfile = [
     {
-    heading:'Profile Overview',
-    rating1:'4.0',
-    rating2:'(15)'
-  }
-]
+      heading: 'Profile Overview',
+      rating1: '4.0',
+      rating2: '(15)',
+    },
+  ];
   public instructorProfileOverview = [
     {
       heading: '32',
@@ -2318,18 +2318,18 @@ export class DataService {
     {
       img: 'assets/img/icon/icon-25.svg',
       heading: '32',
-      paragraph: 'Courses'
+      paragraph: 'Courses',
     },
     {
       img: 'assets/img/icon/icon-26.svg',
       heading: '11,604',
-      paragraph: 'Total Students'
+      paragraph: 'Total Students',
     },
     {
       img: 'assets/img/icon/icon-27.svg',
       heading: '12,230',
-      paragraph: 'Reviews'
-    }
+      paragraph: 'Reviews',
+    },
   ];
   public transactionsInstructor = [
     {
@@ -2400,18 +2400,18 @@ export class DataService {
     {
       img: 'assets/img/icon/icon-25.svg',
       heading: '32',
-      paragraph: 'Courses'
+      paragraph: 'Courses',
     },
     {
       img: 'assets/img/icon/icon-26.svg',
       heading: '11,604',
-      paragraph: 'Total Students'
+      paragraph: 'Total Students',
     },
     {
       img: 'assets/img/icon/icon-27.svg',
       heading: '12,230',
-      paragraph: 'Reviews'
-    }
+      paragraph: 'Reviews',
+    },
   ];
   public withdrawalInstructor = [
     {
@@ -2614,22 +2614,22 @@ export class DataService {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
   public register = [
@@ -2637,22 +2637,22 @@ export class DataService {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/login-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
   public registerFive = [
@@ -2660,22 +2660,22 @@ export class DataService {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
   public registerFour = [
@@ -2683,22 +2683,22 @@ export class DataService {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
   public registerOne = [
@@ -2706,22 +2706,22 @@ export class DataService {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
     {
       img: 'assets/img/register-img.png',
       content1: 'Welcome to',
       content2: 'DreamsLMS Courses.',
-      paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.'
-
+      paragraph:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
     },
   ];
   public registerThree = [
@@ -2996,88 +2996,88 @@ export class DataService {
   ];
   public purchaseHistory = [
     {
-      img1:'assets/img/course/course-10.jpg',
-      content1:'Information About UI/UX',
-      content2:'Design Degree',
-      content3:'Invoice',
-      idle:'FREE',
-      img2:'assets/img/icon/icon-01.svg',
-      img3:'assets/img/icon/icon-02.svg',
-      img4:'assets/img/user/user1.jpg',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      name:'Rolands R',
-      role:'Instructor',
+      img1: 'assets/img/course/course-10.jpg',
+      content1: 'Information About UI/UX',
+      content2: 'Design Degree',
+      content3: 'Invoice',
+      idle: 'FREE',
+      img2: 'assets/img/icon/icon-01.svg',
+      img3: 'assets/img/icon/icon-02.svg',
+      img4: 'assets/img/user/user1.jpg',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      name: 'Rolands R',
+      role: 'Instructor',
     },
     {
-      img1:'assets/img/course/course-11.jpg',
-      content1:'Wordpress for Beginners - Master Wordpress',
-      content2:'Quickly',
-      content3:'Invoice',
-      img2:'assets/img/icon/icon-01.svg',
-      img3:'assets/img/icon/icon-02.svg',
-      img4:'assets/img/user/user2.jpg',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      name:'Rolands R',
-      role:'Instructor',
-      amount1:'$300',
-      amount2:'$99.00'
+      img1: 'assets/img/course/course-11.jpg',
+      content1: 'Wordpress for Beginners - Master Wordpress',
+      content2: 'Quickly',
+      content3: 'Invoice',
+      img2: 'assets/img/icon/icon-01.svg',
+      img3: 'assets/img/icon/icon-02.svg',
+      img4: 'assets/img/user/user2.jpg',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      name: 'Rolands R',
+      role: 'Instructor',
+      amount1: '$300',
+      amount2: '$99.00',
     },
     {
-      img1:'assets/img/course/course-12.jpg',
-      content1:'Sketch from A to Z (2022): Become an app',
-      content2:'designer',
-      content3:'Invoice',
-      img2:'assets/img/icon/icon-01.svg',
-      img3:'assets/img/icon/icon-02.svg',
-      img4:'assets/img/user/user3.jpg',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      name:'Rolands R',
-      role:'Instructor',
-      amount1:'$300',
-      amount2:'$99.00'
-    }
+      img1: 'assets/img/course/course-12.jpg',
+      content1: 'Sketch from A to Z (2022): Become an app',
+      content2: 'designer',
+      content3: 'Invoice',
+      img2: 'assets/img/icon/icon-01.svg',
+      img3: 'assets/img/icon/icon-02.svg',
+      img4: 'assets/img/user/user3.jpg',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      name: 'Rolands R',
+      role: 'Instructor',
+      amount1: '$300',
+      amount2: '$99.00',
+    },
   ];
   public wishlist = [
     {
-      img:'assets/img/course/course-01.jpg',
-      price:'$300',
-      content1:'Information About UI/UX Design Degree',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      content2:'Remove'
+      img: 'assets/img/course/course-01.jpg',
+      price: '$300',
+      content1: 'Information About UI/UX Design Degree',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      content2: 'Remove',
     },
     {
-      img:'assets/img/course/course-02.jpg',
-      price:'$300',
-      content1:'Wordpress for Beginners - Master Wordpress Quickly',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      content2:'Remove'
+      img: 'assets/img/course/course-02.jpg',
+      price: '$300',
+      content1: 'Wordpress for Beginners - Master Wordpress Quickly',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      content2: 'Remove',
     },
     {
-      img:'assets/img/course/course-03.jpg',
-      price:'$300',
-      content1:'Sketch from A to Z (2022): Become an app designer',
-      lesson:'12+ Lesson',
-      time:'9hr 30min',
-      rating1:'4.0',
-      rating2:'(15)',
-      content2:'Remove'
-    }
-  ]
+      img: 'assets/img/course/course-03.jpg',
+      price: '$300',
+      content1: 'Sketch from A to Z (2022): Become an app designer',
+      lesson: '12+ Lesson',
+      time: '9hr 30min',
+      rating1: '4.0',
+      rating2: '(15)',
+      content2: 'Remove',
+    },
+  ];
   public jobCategoryGraphics = [
     {
       img1: 'assets/img/category/category-01.jpg',
@@ -3412,9 +3412,7 @@ export class DataService {
       content: 'View All',
     },
   ];
-  public latestTransactions = [
-    
-  ];
+  public latestTransactions = [];
   public settingStudentInvoice = [
     {
       orderId: '#1001',
@@ -4334,13 +4332,11 @@ export class DataService {
   public sideBar: any = [
     {
       tittle: 'Home',
-      base3:'home-three',
+      base3: 'home-three',
       showAsTab: false,
       separateRoute: false,
       route: 'javascript:;',
       menu: [
-        
-       
         {
           menuValue: 'Landing page',
           route: routes.home3,
@@ -4349,20 +4345,18 @@ export class DataService {
           base: 'home-three',
           subMenus: [],
         },
-      
-          {
-            menuValue: 'Dashboard',
-            route: routes.instructor_dashboard,
-            hasSubRoute: false,
-            showSubRoute: false,
-            base: 'instructor',
-            page: 'instructor-dashboard',
-            last: '',
-            subMenus: [],
-          },
-      
+
+        {
+          menuValue: 'Dashboard',
+          route: routes.instructor_analytics,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'instructor',
+          page: 'instructor-analytics',
+          last: '',
+          subMenus: [],
+        },
       ],
-      
     },
 
     {
@@ -4382,7 +4376,7 @@ export class DataService {
         },
         {
           menuValue: 'Service Orders',
-          route: routes.instructor_dashboard,
+          route: routes.instructor_orders,
           hasSubRoute: false,
           showSubRoute: false,
           base: 'enterprises',
@@ -4390,7 +4384,7 @@ export class DataService {
         },
         {
           menuValue: 'Meetings',
-          route: routes.instructor_dashboard,
+          route: routes.meetings,
           hasSubRoute: false,
           showSubRoute: false,
           base: 'enterprises',
@@ -4416,17 +4410,27 @@ export class DataService {
           subMenus: [],
         },
         {
-        menuValue: 'Add Matching',
-        route: routes.entrepriseaddmatching,
-        hasSubRoute: false,
-        showSubRoute: false,
-        base: 'add',
-        page: 'entrepriseaddmatching',
-        last: '',
-        subMenus: [],
-      },
+          menuValue: 'Add Matching',
+          route: routes.entrepriseaddmatching,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'add',
+          page: 'entrepriseaddmatching',
+          last: '',
+          subMenus: [],
+        },
+        {
+          menuValue: 'Portfolios',
+          route: routes.portfolio,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'portfolio',
+          page: 'portfolio',
+          last: '',
+          subMenus: [],
+        },
       ],
-    },  
+    },
     {
       tittle: 'Events',
       base3: 'events',
@@ -4445,13 +4449,51 @@ export class DataService {
           subMenus: [],
         },
       ],
-    },    
+    },
+    {
+      tittle: 'Forums',
+      base3: 'forums',
+      showAsTab: false,
+      separateRoute: false,
+      route: 'javascript:;',
+      menu: [
+        {
+          menuValue: 'Show Forum',
+          route: routes.forums,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'forums',
+          page: 'forums',
+          last: '',
+          subMenus: [],
+        },
+      ],
+    },
+    {
+      tittle: 'Feedback',
+      base3: 'feedback',
+      showAsTab: false,
+      separateRoute: false,
+      route: 'javascript:;',
+      menu: [
+        {
+          menuValue: 'Add feedback',
+          route: routes.feedback,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'feedback',
+          page: 'feedback',
+          last: '',
+          subMenus: [],
+        },
+      ],
+    },
     {
       tittle: 'About',
       base3: 'about',
       showAsTab: false,
       separateRoute: false,
-      route: 'javascript:;', 
+      route: 'javascript:;',
       menu: [
         {
           menuValue: 'About',
@@ -4464,19 +4506,18 @@ export class DataService {
           subMenus: [],
         },
         {
-        menuValue: 'FAQ',
-        route: routes.page_faq,
-        hasSubRoute: false,
-        showSubRoute: false,
-        base: 'pages',
-        page: 'faq',
-        last: '',
-        subMenus: [],
-      },
-    ],
+          menuValue: 'FAQ',
+          route: routes.page_faq,
+          hasSubRoute: false,
+          showSubRoute: false,
+          base: 'pages',
+          page: 'faq',
+          last: '',
+          subMenus: [],
+        },
+      ],
     },
-    
-    
+
     /*{
       tittle: 'Instructor',
       base: 'instructor',
@@ -5092,16 +5133,15 @@ export class DataService {
     },*/
   ];
   public Instructor_sideBar: any = [
-
     {
       tittle: 'DASHBOARD',
       class: false,
       menu: [
         {
           menuValue: 'My Dashboard',
-          route: routes.instructor_dashboard,
+          route: routes.instructor_analytics,
           icon: 'home',
-          base: 'instructor-dashboard',
+          base: 'analytics',
           subMenus: [],
         },
         {
@@ -5154,15 +5194,12 @@ export class DataService {
           subMenus: [],
         },
         {
-          menuValue: 'FeedBacks',
+          menuValue: 'Tickets',
           route: routes.instructor_tickets,
           icon: 'server',
           base: 'instructor-tickets',
           subMenus: [],
         },
-
-      
-       
       ],
     },
     /*{
@@ -5231,10 +5268,10 @@ export class DataService {
     },
 */
   ];
-  public getInstructorSideBarData: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.Instructor_sideBar);
-  
-  public Student_sideBar: any = [
+  public getInstructorSideBarData: BehaviorSubject<Array<any>> =
+    new BehaviorSubject<Array<any>>(this.Instructor_sideBar);
 
+  public Student_sideBar: any = [
     {
       tittle: 'ACCOUNT SETTINGS',
       class: false,
@@ -5302,10 +5339,6 @@ export class DataService {
           base: 'login',
           subMenus: [],
         },
-        
-
-      
-       
       ],
     },
     {
@@ -5340,11 +5373,9 @@ export class DataService {
           base: 'setting-student-invoice',
           subMenus: [],
         },
-               
       ],
     },
-
-
   ];
-  public getStudentSideBarData: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>(this.Student_sideBar);
+  public getStudentSideBarData: BehaviorSubject<Array<any>> =
+    new BehaviorSubject<Array<any>>(this.Student_sideBar);
 }

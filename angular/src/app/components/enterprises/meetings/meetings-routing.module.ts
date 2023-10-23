@@ -1,12 +1,12 @@
-// events-routing.module.ts
+// meetings-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EventsComponent } from './events.component';
+import { MeetingsComponent } from './meetings.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: EventsComponent,
+    component: MeetingsComponent,
   },
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EventsRoutingModule {}
+export class MeetingsRoutingModule {}

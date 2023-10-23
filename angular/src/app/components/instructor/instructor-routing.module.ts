@@ -22,6 +22,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'analytics',
+        loadChildren: () =>
+          import('./analytics/analytics-dashboard.module').then(
+            (m) => m.AnalyticsDashboardModule
+          ),
+      },
+      {
         path: 'instructor-dashboard',
         loadChildren: () =>
           import('./instructor-dashboard/instructor-dashboard.module').then(

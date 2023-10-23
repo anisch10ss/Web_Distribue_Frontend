@@ -1,0 +1,13 @@
+<div class="d-flex" style="flex-wrap: wrap; gap: 30px">
+    <div *ngFor="let a of analytics; index as i" class="d-flex">
+        <div class="card instructor-card w-100">
+            <div class="card-body">
+                <div class="instructor-inner">
+                    <h6>{{a.title}}</h6>
+                    <h4 class="instructor-text-success">{{a.content}}</h4>
+                    <p>{{a.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

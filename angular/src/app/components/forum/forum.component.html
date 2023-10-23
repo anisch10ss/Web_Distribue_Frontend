@@ -1,0 +1,82 @@
+<div class="forums-page">
+  <div class="center-content">
+    <!-- Search bar -->
+    <div class="d-flex">
+      <h2 class="page-title">Forum</h2>
+    </div>
+
+    <!-- Table to display forums -->
+    <div class="cards">
+      <div
+        *ngFor="let item of forums; index as i"
+        class="card"
+        style="max-width: 400px"
+      >
+        <div class="card-body">
+          <div class="content">
+            <p>
+              {{ item.content }}
+            </p>
+          </div>
+          <div class="button-container action-buttons mt-3">
+            <button
+              (click)="sendLike(i)"
+              class="like-button"
+              [ngClass]="{ liked: item.liked }"
+            >
+              <i class="fas fa-thumbs-up"></i>
+            </button>
+            <button
+              (click)="sendDislike(i)"
+              class="dislike-button"
+              [ngClass]="{ disliked: item.disliked }"
+            >
+              <i class="fas fa-thumbs-down"></i>
+            </button>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush comments">
+          <li
+            *ngFor="let comment of item.comments; index as j"
+            class="list-group-item"
+          >
+            {{ comment.content }}
+          </li>
+        </ul>
+        <div class="card-footer">
+          <mat-form-field class="search-field">
+            <mat-placeholder>Comment</mat-placeholder>
+            <input
+              [value]="typedComments[i]"
+              (input)="typedComments[i] = $event.target.value"
+              matInput
+              type="comment"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              aria-label="comment"
+              class="btn btn-primary"
+              style="
+                height: 30px;
+                width: 45px;
+                margin-left: 20px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              (click)="addComment(i)"
+            >
+              <mat-icon style="transform: scale(0.5)">send</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Show no forums found if forums is empty-->
+      <div *ngIf="forums.length == 0" class="no-forums">
+        <h3>No posts found</h3>
+      </div>
+    </div>
+  </div>
+</div>

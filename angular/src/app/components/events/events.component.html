@@ -1,4 +1,70 @@
 <div class="events-page">
-
-  <div id="calendar"></div> <!-- Add this element to your template -->
+  <div *ngIf="showAddForm">
+    <div class="row">
+      <!-- Profile Details -->
+      <div class="settings-widget">
+        <div
+          class="settings-inner-blk add-course-info mat-style new-ticket-blk p-0"
+        >
+          <div class="comman-space">
+            <h4>Add new event</h4>
+            <div>
+              <div class="form-group">
+                <label class="form-control-label">Lieu</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [value]="addFormLieu"
+                  (input)="addFormLieu = $event.target.value"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Host</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [value]="addFormHost"
+                  (input)="addFormHost = $event.target.value"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Start Date</label>
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  [ngModel]="addFormStartDate | date:'yyyy-MM-ddTHH:mm'"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">End Date</label>
+                  <input
+                  type="datetime-local"
+                  class="form-control"
+                  [ngModel]="addFormEndDate | date:'yyyy-MM-ddTHH:mm'"
+                />
+              </div>
+              <div class="submit-ticket">
+                <button
+                  (click)="onClick($event)"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Submit
+                </button>
+                <button
+                  (click)="cancelAdd($event)"
+                  type="button"
+                  class="btn btn-secondary"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="calendar"></div>
+  <!-- Add this element to your template -->
 </div>

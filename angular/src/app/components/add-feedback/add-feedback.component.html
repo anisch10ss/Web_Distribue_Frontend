@@ -1,0 +1,69 @@
+<!--Dashbord Student -->
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <!-- Profile Details -->
+      <div class="col-md-12">
+        <div class="settings-widget">
+          <div
+            class="settings-inner-blk add-course-info mat-style new-ticket-blk p-0"
+          >
+            <div class="comman-space">
+              <h4>Create New {{selected | titlecase}}</h4>
+              <div>
+                <div *ngIf="showTitle" class="form-group">
+                  <label class="form-control-label">{{selected | titlecase}} Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [value]="title"
+                    (input)="title = $event.target.value"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Type</label>
+                  <mat-select
+                    class="form-select select country-select"
+                    name="sellist1"
+                    [(value)]="selected"
+                    (selectionChange)="onChange($event)"
+                  >
+                    <mat-option value="feedback">Feedback</mat-option>
+                    <mat-option value="reclamation">Reclamation</mat-option>
+                  </mat-select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    [value]="description"
+                    (input)="description = $event.target.value"
+                  ></textarea>
+                </div>
+                <div class="submit-ticket">
+                  <button
+                    (click)="onClick($event)"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <ng-container *ngIf="submit">
+                <p class="color-primary">{{selected | titlecase}} submitted succefully.</p>
+              </ng-container>
+              <ng-container *ngIf="error">
+                <p *ngif="error" class="color-warning">Error!</p>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Profile Details -->
+    </div>
+  </div>
+</div>
+<!-- /Dashbord Student -->

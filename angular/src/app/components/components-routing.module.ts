@@ -1,3 +1,4 @@
+import { ForumsRoutingModule } from './forum/forum-routing.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentsComponent } from './components.component';
@@ -9,7 +10,7 @@ const routes: Routes = [
     path: '',
     component: ComponentsComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '', redirectTo: 'home-three', pathMatch: 'full' },
 
       /*{
         path: 'enterprisecard',
@@ -18,6 +19,13 @@ const routes: Routes = [
             (m) => m.EnterpriseCardModule
           ),
       },*/
+      {
+        path: 'portfolio',
+        loadChildren: () =>
+          import('../components/portfolio/portfolio.module').then(
+            (m) => m.PortfolioModule
+          ),
+      },
       {
         path: 'matches',
         loadChildren: () =>
@@ -46,9 +54,24 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'feedback',
+        loadChildren: () =>
+          import('./add-feedback/add-feedback-routing.module').then((m) => m.AddFeedbackRoutingModule),
+      },
+      {
         path: 'services',
         loadChildren: () =>
           import('./enterprises/services/services-routing.module').then((m) => m.ServicesRoutingModule),
+      },
+      {
+        path: 'meetings',
+        loadChildren: () =>
+          import('./enterprises/meetings/meetings-routing.module').then((m) => m.MeetingsRoutingModule),
+      },
+      {
+        path: 'forums',
+        loadChildren: () =>
+          import('./forum/forum-routing.module').then((m) => m.ForumsRoutingModule),
       },
       {
         path: 'pages',

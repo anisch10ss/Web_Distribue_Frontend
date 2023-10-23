@@ -3,8 +3,6 @@ import { DataService } from 'src/app/shared/service/data/data.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { passwordResponce, register } from 'src/app/models/register.model';
 import { routes } from 'src/app/shared/service/routes/routes';
-import { AuthService } from 'src/app/shared/service/common/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,13 +14,9 @@ export class RegisterComponent implements OnInit {
   public registerForm:register={}
   public passwordResponce:passwordResponce={};
 
-  
+  public register: any = [];
 
-  email: string = '';
-  password: string = '';
-  username: string = '';
-  lastname: string = '';
-  firstname: string = '';
+  password= 'password';
   show = true;
 
   public registerOwlOptions: OwlOptions = {
@@ -42,37 +36,11 @@ export class RegisterComponent implements OnInit {
     },
   };
 
-  constructor(private authService: AuthService,private router: Router) {}
-
-  ngOnInit(): void {
+  constructor(private DataService: DataService) {
+    this.register = this.DataService.register;
   }
 
-  register() {
-    // Call your AuthService's registration method with the form data
-    const userDetails = {
-      userName: this.username,
-      userLastName: this.lastname,
-      userFirstName: this.firstname,
-      userEmail: this.email,
-      userPassword: this.password,
-      // Add more fields if needed
-    };
-    console.log("userdetails:", userDetails);
-
-    this.authService.register(userDetails).subscribe(
-      (response) => {
-        // Registration successful, handle the response
-        console.log('Registration successful:', response);
-        // Redirect the user to a success page or perform other actions as needed
-        this.router.navigate(['/auth/login']);
-
-      },
-      (error) => {
-        // Registration failed, handle the error
-        console.error('Registration failed:', error);
-        // Display an error message to the user
-      }
-    );
+  ngOnInit(): void {
   }
   onClick() {
     if (this.password === 'password') {
@@ -83,25 +51,8 @@ export class RegisterComponent implements OnInit {
       this.show = true;
     }
   }
-  public onChangeEmail(email:any){
-    console.log("email:", email)
-    this.email = email;
-  }
-  public onChangeLastName(lastname:any){
-
-    this.lastname = lastname;
-  }
-  public onChangeFirstName(firstname:any){
-
-    this.firstname = firstname;
-  }
-  public onChangeUsername(username:any){
-
-    this.username = username;
-  }
 
   public onChangePassword(password:any){
-    this.password = password
     if(password.match(/^$|\s+/)) {
       this.passwordResponce.passwordResponceText = "whitespaces are not allowed"
       this.passwordResponce.passwordResponceImage = ""

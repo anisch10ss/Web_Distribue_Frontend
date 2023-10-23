@@ -1,0 +1,296 @@
+<div class="page-content" style="margin-top: 0; margin-bottom: 0">
+  <div class="container">
+    <!-- Courses -->
+    <section class="home-three-courses">
+      <div class="favourite-course-sec">
+        <div class="row">
+          <div class="home-three-head section-header-title" data-aos="fade-up">
+            <div class="row align-items-center d-flex justify-content-between">
+              <div class="my-2">
+                <h2>Companies</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="all-corses-main">
+            <div class="tab-content">
+              <div class="nav tablist-three" role="tablist">
+                <a
+                  class="nav-tab active me-3"
+                  data-bs-toggle="tab"
+                  href="#alltab"
+                  role="tab"
+                  >All</a
+                >
+
+                <a
+                  class="nav-tab me-3"
+                  data-bs-toggle="tab"
+                  href="#softwaretab"
+                  role="tab"
+                  >Software Engineering</a
+                >
+
+                <a
+                  class="nav-tab me-3"
+                  data-bs-toggle="tab"
+                  href="#datasciencetab"
+                  role="tab"
+                  >Data Science</a
+                >
+              </div>
+
+              <div class="tab-content">
+                <!-- All -->
+                <div
+                  class="tab-pane fade active show"
+                  id="alltab"
+                  role="tabpanel"
+                >
+                  <div class="all-course">
+                    <div class="row">
+                      <!-- Col -->
+                      <ng-container *ngFor="let data of all">
+                        <div
+                          class="col-xl-3 col-lg-6 col-md-6 col-12"
+                          data-aos="fade-up"
+                        >
+                          <div class="course-box-three">
+                            <div class="course-three-item">
+                              <div class="course-three-img">
+                                <a>
+                                  <img
+                                    class="img-fluid"
+                                    alt=""
+                                    src="{{ data.photo }}"
+                                  />
+                                </a>
+                                <div class="heart-three">
+                                  <a routerLink="javascript:;"
+                                    ><i class="fa-regular fa-heart"></i
+                                  ></a>
+                                </div>
+                              </div>
+                              <div class="course-three-content">
+                                <div class="course-three-text">
+                                  <a>
+                                    <p>{{ data.projectName }}</p>
+                                    <h3 class="title instructor-text">
+                                      {{ data.description }}
+                                    </h3>
+                                  </a>
+                                </div>
+
+                                <div
+                                  class="student-counts-info d-flex align-items-center"
+                                >
+                                  <div
+                                    class="students-three-counts d-flex align-items-center"
+                                  >
+                                    <img
+                                      src="assets/img/icon-three/student.svg"
+                                      alt=""
+                                    />
+                                    <p>{{ data.user.userName }}</p>
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="price-three-group d-flex align-items-center justify-content-between justify-content-between"
+                                >
+                                  <div
+                                    class="price-three-view d-flex align-items-center"
+                                  >
+                                    <div class="course-price-three">
+                                      <h3>
+                                        <span style="text-decoration: none !important;">{{ data.category }}</span>
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="price-three-time d-inline-flex align-items-center"
+                                  >
+                                    <i class="fa-solid fa-building-columns"></i>
+                                    <span>{{data.clientName}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                      <!-- /Col -->
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="softwaretab"
+                  role="tabpanel"
+                >
+                  <div class="all-course">
+                    <div class="row">
+                      <!-- Col -->
+                      <ng-container *ngFor="let data of software">
+                        <div
+                          class="col-xl-3 col-lg-6 col-md-6 col-12"
+                          data-aos="fade-up"
+                        >
+                          <div class="course-box-three">
+                            <div class="course-three-item">
+                              <div class="course-three-img">
+                                <a>
+                                  <img
+                                    class="img-fluid"
+                                    alt=""
+                                    src="{{ data.photo }}"
+                                  />
+                                </a>
+                                <div class="heart-three">
+                                  <a routerLink="javascript:;"
+                                    ><i class="fa-regular fa-heart"></i
+                                  ></a>
+                                </div>
+                              </div>
+                              <div class="course-three-content">
+                                <div class="course-three-text">
+                                  <a>
+                                    <p>{{ data.projectName }}</p>
+                                    <h3 class="title instructor-text">
+                                      {{ data.description }}
+                                    </h3>
+                                  </a>
+                                </div>
+
+                                <div
+                                  class="student-counts-info d-flex align-items-center"
+                                >
+                                  <div
+                                    class="students-three-counts d-flex align-items-center"
+                                  >
+                                    <img
+                                      src="assets/img/icon-three/student.svg"
+                                      alt=""
+                                    />
+                                    <p>{{ data.user.userName }}</p>
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="price-three-group d-flex align-items-center justify-content-between justify-content-between"
+                                >
+                                  <div
+                                    class="price-three-view d-flex align-items-center"
+                                  >
+                                    <div class="course-price-three">
+                                      <h3>
+                                        <span style="text-decoration: none !important;">{{ data.category }}</span>
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="price-three-time d-inline-flex align-items-center"
+                                  >
+                                    <i class="fa-solid fa-building-columns"></i>
+                                    <span>{{data.clientName}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                      <!-- /Col -->
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="datasciencetab"
+                  role="tabpanel"
+                >
+                  <div class="all-course">
+                    <div class="row">
+                      <!-- Col -->
+                      <ng-container *ngFor="let data of datascience">
+                        <div
+                          class="col-xl-3 col-lg-6 col-md-6 col-12"
+                          data-aos="fade-up"
+                        >
+                          <div class="course-box-three">
+                            <div class="course-three-item">
+                              <div class="course-three-img">
+                                <a>
+                                  <img
+                                    class="img-fluid"
+                                    alt=""
+                                    src="{{ data.photo }}"
+                                  />
+                                </a>
+                                <div class="heart-three">
+                                  <a routerLink="javascript:;"
+                                    ><i class="fa-regular fa-heart"></i
+                                  ></a>
+                                </div>
+                              </div>
+                              <div class="course-three-content">
+                                <div class="course-three-text">
+                                  <a>
+                                    <p>{{ data.projectName }}</p>
+                                    <h3 class="title instructor-text">
+                                      {{ data.description }}
+                                    </h3>
+                                  </a>
+                                </div>
+
+                                <div
+                                  class="student-counts-info d-flex align-items-center"
+                                >
+                                  <div
+                                    class="students-three-counts d-flex align-items-center"
+                                  >
+                                    <img
+                                      src="assets/img/icon-three/student.svg"
+                                      alt=""
+                                    />
+                                    <p>{{ data.user.userName }}</p>
+                                  </div>
+                                </div>
+
+                                <div
+                                  class="price-three-group d-flex align-items-center justify-content-between justify-content-between"
+                                >
+                                  <div
+                                    class="price-three-view d-flex align-items-center"
+                                  >
+                                    <div class="course-price-three">
+                                      <h3>
+                                        <span style="text-decoration: none !important;">{{ data.category }}</span>
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <div
+                                    class="price-three-time d-inline-flex align-items-center"
+                                  >
+                                    <i class="fa-solid fa-building-columns"></i>
+                                    <span>{{data.clientName}}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                      <!-- /Col -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /All -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

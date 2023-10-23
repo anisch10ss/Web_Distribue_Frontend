@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Sort } from '@angular/material/sort';
+import { ApiService } from 'src/app/shared/service/api/api.service';
+import { routes } from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-services',
@@ -8,36 +10,56 @@ import { Sort } from '@angular/material/sort';
   styleUrls: ['./services.component.scss'],
 })
 export class ServicesComponent implements OnInit {
+  public routes = routes;
   public services: any = [];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name', 'enterprise_name', 'service_type', 'price'];
+  displayedColumns: string[] = [
+    'type',
+    'description',
+    'tarification',
+    "actions"
+  ];
   searchDataValue = '';
+  serviceOrdersMessage: boolean[] = [];
+  loadingMessages: boolean[] = [];
 
-  constructor() {}
+  constructor(private api: ApiService) {}
 
   ngOnInit(): void {
+    this.services = [];
+    this.serviceOrdersMessage = [];
+    this.loadingMessages = [];
+    this.api.getServices().subscribe((res: any) => {
+      console.log(res);
+      res.forEach((service: any) => {
+        this.services.push(service);
+      });
+      this.serviceOrdersMessage = Array(this.services.length).fill(false);
+      this.loadingMessages = Array(this.services.length).fill(false);
+      this.dataSource = new MatTableDataSource<any>(this.services);
+    });
     // Initialize static services
-    this.services = [
-      {
-        name: 'Service 1',
-        enterprise_name: 'Enterprise A',
-        service_type: 'Type A',
-        price: 50
-      },
-      {
-        name: 'Service 2',
-        enterprise_name: 'Enterprise B',
-        service_type: 'Type B',
-        price: 60
-      },
-      {
-        name: 'Service 3',
-        enterprise_name: 'Enterprise C',
-        service_type: 'Type A',
-        price: 70
-      },
-      // Add more static services here
-    ];
+    // this.services = [
+    //   {
+    //     name: 'Service 1',
+    //     enterprise_name: 'Enterprise A',
+    //     service_type: 'Type A',
+    //     price: 50
+    //   },
+    //   {
+    //     name: 'Service 2',
+    //     enterprise_name: 'Enterprise B',
+    //     service_type: 'Type B',
+    //     price: 60
+    //   },
+    //   {
+    //     name: 'Service 3',
+    //     enterprise_name: 'Enterprise C',
+    //     service_type: 'Type A',
+    //     price: 70
+    //   },
+    //   // Add more static services here
+    // ];
 
     // Initialize data source
     this.dataSource = new MatTableDataSource<any>(this.services);
@@ -60,5 +82,15 @@ export class ServicesComponent implements OnInit {
   public searchData(value: any): void {
     this.dataSource.filter = value.trim().toLowerCase();
     this.services = this.dataSource.filteredData;
+  }
+
+  orderService(i: number) {
+    console.log(i);
+    this.loadingMessages[i] = true;
+    this.api.postServiceOrder().subscribe((res: any) => {
+      console.log(res);
+      this.loadingMessages[i] = false;
+      this.serviceOrdersMessage[i] = true;
+    });
   }
 }

@@ -13,12 +13,13 @@ import { MyHammerConfig } from '../hammer.config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/module/shared.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './shared/service/common/auth.interceptor';
-
+import { MeetingsComponent } from './components/enterprises/meetings/meetings.component';
+import { ForumsComponent } from './components/forum/forum.component';
+import { AddFeedbackComponent } from './components/add-feedback/add-feedback.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent,ServicesComponent],
+  declarations: [AppComponent,ServicesComponent,MeetingsComponent,ForumsComponent,AddFeedbackComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,11 +28,11 @@ import { AuthInterceptor } from './shared/service/common/auth.interceptor';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
+    HttpClientModule,
 
   ],
   providers: [
-    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig }
   ],
   bootstrap: [AppComponent],
 })

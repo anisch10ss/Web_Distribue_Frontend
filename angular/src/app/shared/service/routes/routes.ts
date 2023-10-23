@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 
 
 export class routes {
   private static Url = '';
-
-  constructor() {}
 
   public static get events(): string {
     return this.baseUrl + '/events/';
@@ -26,6 +23,15 @@ export class routes {
   }
   public static get services(): string {
     return this.baseUrl + '/services/';
+  }
+  public static get meetings(): string {
+    return this.baseUrl + '/meetings/';
+  }
+  public static get feedback(): string {
+    return this.baseUrl + '/feedback/';
+  }
+  public static get forums(): string {
+    return this.baseUrl + '/forums/';
   }
   public static get baseUrl(): string {
     return this.Url;
@@ -48,6 +54,10 @@ export class routes {
   public static get error(): string {
     return this.baseUrl + '/error/';
   }
+  public static get portfolio(): string {
+    return this.baseUrl + '/portfolio';
+  }
+ 
   
  
   public static get home3(): string {
@@ -56,8 +66,10 @@ export class routes {
   public static get page_faq1(): string {
     return this.home3 + 'faq';
   }
- 
   // Instructor Routings
+  public static get instructor_analytics(): string {
+    return this.instructor + 'analytics';
+  }
   public static get instructor_dashboard(): string {
     return this.instructor + 'instructor-dashboard';
   }

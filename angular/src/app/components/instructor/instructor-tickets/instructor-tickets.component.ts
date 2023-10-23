@@ -1,63 +1,73 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/shared/service/api/api.service';
 import { DataService } from 'src/app/shared/service/data/data.service';
 import { routes } from 'src/app/shared/service/routes/routes';
 
 @Component({
   selector: 'app-instructor-tickets',
   templateUrl: './instructor-tickets.component.html',
-  styleUrls: ['./instructor-tickets.component.scss']
+  styleUrls: ['./instructor-tickets.component.scss'],
 })
 export class InstructorTicketsComponent implements OnInit {
   public routes = routes;
-  public instructorTickets1: any = [];
-  public instructorTickets2: any = [];
-  public instructorTickets3: any = [];
-  public instructorTickets4: any = [];
+  public feedbacks: any = [];
+  public complaints: any = [];
+  public complaintsCouponsSent: any = [];
+  public all: any = [];
+  public allCouponsSent: any = [];
 
-  constructor(private DataService: DataService) {
-    
-  }
+  constructor(private DataService: DataService, private api: ApiService) {}
 
   ngOnInit(): void {
-    this.tableData1();
-    this.tableData2();
-    this.tableData3();
-    this.tableData4();
-  }
-  private tableData1(): void {
-    this.instructorTickets1= [];
-    this.DataService.instructorTicket1().subscribe((res: any) => {
-      res.data.map((res: any) => {
-        this.instructorTickets1.push(res);
-      });
+    this.feedbacks = [];
+    this.complaints = [];
+    this.all = [];
+    this.allCouponsSent = [];
+    this.complaintsCouponsSent = [];
 
+    this.api.getComplaints().subscribe((res: any) => {
+      console.log(res);
+      res.forEach((complaint: any) => {
+        this.complaints.push(complaint);
+        this.all.push({
+          idReclamation: complaint.idReclamation,
+          type: 'reclamation',
+          subject: complaint.etat,
+          description: complaint.contenu,
+        });        
+      });
+      this.complaintsCouponsSent = Array(this.complaints.length).fill(false);
+    });
+    this.api.getFeedbacks().subscribe((res: any) => {
+      console.log(res);
+      res.forEach((feedback: any) => {
+        if (feedback.type === 'feedback') {
+          this.feedbacks.push(feedback);
+          this.all.push(feedback);
+        }
+      });
+      this.allCouponsSent = Array(this.all.length).fill(false);
     });
   }
-  private tableData2(): void {
-    this.instructorTickets2= [];
-    this.DataService.instructorTicket2().subscribe((res: any) => {
-      res.data.map((res: any) => {
-        this.instructorTickets2.push(res);
-      });
 
+  sendMail(i: number) {
+    console.log(i);
+    this.api.complaintSendCoupon(this.complaints[i].idReclamation).subscribe((res: any) => {
+      console.log("res", res);
+      this.complaintsCouponsSent[i] = true;
+    }, err => {
+      console.log("err", err);
+      this.complaintsCouponsSent[i] = true;
     });
   }
-  private tableData3(): void {
-    this.instructorTickets3= [];
-    this.DataService.instructorTicket3().subscribe((res: any) => {
-      res.data.map((res: any) => {
-        this.instructorTickets3.push(res);
-      });
-
-    });
-  }
-  private tableData4(): void {
-    this.instructorTickets4= [];
-    this.DataService.instructorTicket4().subscribe((res: any) => {
-      res.data.map((res: any) => {
-        this.instructorTickets4.push(res);
-      });
-
+  sendMailFromAll(i: number) {
+    console.log(i);
+    this.api.complaintSendCoupon(this.all[i].idReclamation).subscribe((res: any) => {
+      console.log("res", res);
+      this.allCouponsSent[i] = true;
+    }, err => {
+      console.log("err", err);
+      this.allCouponsSent[i] = true;
     });
   }
 }
